@@ -587,14 +587,15 @@ input:focus {
 
 @media (max-width: 480px) {
   #floating-cta-container {
+    bottom: 20px; /* Lifted from the bottom edge */
     padding: 0.8rem;
-    background: rgba(10, 14, 20, 0.85);
-    backdrop-filter: blur(12px);
+    background: transparent; /* Remove background gradient to make it feel floating */
+    backdrop-filter: none;
   }
   .cta-inner { padding: 0 1rem; }
   .btn-floating { 
-    font-size: 0.9rem;
-    padding: 0.8rem;
+    font-size: 1rem; /* Slightly larger for better readability */
+    padding: 1rem;
     border-radius: 12px;
   }
 }
