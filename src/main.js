@@ -72,3 +72,18 @@ if (rsvpForm) {
         rsvpForm.reset();
     });
 }
+
+// Auto-play review video when visible
+const reviewVideo = document.getElementById('review-video');
+if (reviewVideo) {
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                reviewVideo.play().catch(e => console.log('Autoplay prevented:', e));
+            } else {
+                reviewVideo.pause();
+            }
+        });
+    }, { threshold: 0.5 });
+    videoObserver.observe(reviewVideo);
+}
