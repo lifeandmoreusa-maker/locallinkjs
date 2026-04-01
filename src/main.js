@@ -75,6 +75,8 @@ if (rsvpForm) {
 
 // Auto-play review video when visible
 const reviewVideo = document.getElementById('review-video');
+const unmuteBtn = document.getElementById('unmute-btn');
+
 if (reviewVideo) {
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -86,4 +88,22 @@ if (reviewVideo) {
         });
     }, { threshold: 0.5 });
     videoObserver.observe(reviewVideo);
+    
+    // Tap to unmute logic
+    if (unmuteBtn) {
+        // Toggle sound and play on overlay click
+        unmuteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            reviewVideo.muted = false;
+            reviewVideo.play();
+            unmuteBtn.classList.add('hidden');
+        });
+
+        // Hide overlay if user unmutes via native controls
+        reviewVideo.addEventListener('volumechange', () => {
+            if (!reviewVideo.muted && reviewVideo.volume > 0) {
+                unmuteBtn.classList.add('hidden');
+            }
+        });
+    }
 }

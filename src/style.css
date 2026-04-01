@@ -743,6 +743,42 @@ input:focus {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.unmute-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  z-index: 10;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  animation: pulse-ring 2s infinite ease-in-out;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.unmute-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(0, 242, 254, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+}
+
 .review-vlog:hover {
   transform: scale(1.02);
 }
