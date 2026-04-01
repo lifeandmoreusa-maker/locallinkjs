@@ -883,24 +883,27 @@ input:focus {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 12px 10px;
+    gap: 12px;
+    padding: 8px 10px;
     width: 100%;
   }
   .urgency-timer-group {
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Stack '4월 광고 마감' on top */
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    gap: 4px;
     width: auto;
-    flex: 0 0 auto; /* Never shrink the timer section */
+    flex: 0 0 auto;
+    min-width: 100px;
   }
   .urgency-deadline {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     margin-bottom: 0;
     white-space: nowrap;
     font-weight: 800;
     color: #FF5252;
+    line-height: 1;
   }
   .urgency-counter {
     display: flex;
@@ -908,24 +911,26 @@ input:focus {
     gap: 4px;
   }
   .icon-siren {
-    font-size: 1.3rem;
+    font-size: 1rem;
     flex-shrink: 0;
   }
   .countdown-timer {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: 0.5px;
     white-space: nowrap;
     color: #fff;
     font-weight: 900;
-    min-width: 90px;
+    min-width: 80px;
   }
   .urgency-btn {
     width: auto;
     flex: 0 0 auto;
-    font-size: 0.85rem;
-    padding: 0.7rem 1.2rem;
+    font-size: 0.82rem; /* Reduced to fit mobile screen */
+    padding: 0.7rem 1rem;
     white-space: nowrap;
     border-radius: 8px;
+    line-height: 1;
+    min-width: fit-content;
   }
 }
 
