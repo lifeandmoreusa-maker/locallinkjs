@@ -783,6 +783,122 @@ input:focus {
   transform: scale(1.02);
 }
 
+/* Urgency Elements / Countdown Bar */
+#floating-cta-container.urgency-mode {
+  background: rgba(0, 0, 0, 0.95);
+  border-top: 2px solid #D32F2F;
+  box-shadow: 0 -10px 40px rgba(211, 47, 47, 0.3);
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+#floating-cta-container.hidden {
+  transform: translateY(100%);
+}
+
+#floating-cta-container.visible {
+  transform: translateY(0);
+}
+
+.urgency-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 1.5rem;
+  padding: 15px 20px;
+}
+
+.urgency-timer-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.urgency-deadline {
+  color: #FF5252;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  letter-spacing: -0.5px;
+}
+
+.urgency-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-siren {
+  font-size: 1.8rem;
+  animation: SirenPulse 1s infinite alternate;
+}
+
+@keyframes SirenPulse {
+  0% { transform: scale(1) rotate(-5deg); opacity: 0.8; }
+  100% { transform: scale(1.15) rotate(5deg); opacity: 1; }
+}
+
+.countdown-timer {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.urgency-btn {
+  background: linear-gradient(135deg, #FF5252 0%, #D32F2F 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1.2rem 2rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  flex: 1;
+  max-width: 450px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(211, 47, 47, 0.4);
+  text-align: center;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.urgency-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(211, 47, 47, 0.6);
+  background: linear-gradient(135deg, #FF6B6B 0%, #E53935 100%);
+}
+
+@media (max-width: 768px) {
+  .urgency-inner {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 15px;
+  }
+  .urgency-timer-group {
+    align-items: center;
+    width: 100%;
+  }
+  .urgency-btn {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+  }
+  .countdown-timer {
+    font-size: 2.2rem;
+  }
+}
+
+
 .vlog-thumb {
   width: 100%;
   display: block;

@@ -142,7 +142,8 @@
                             <img src="./house_time.png" alt="자유로운 시간">
                         </div>
                         <div class="benefit-text-new">
-                            <p><strong>출퇴근 없이</strong><br>내가 가능한 시간에!<br><br>시간과 장소에 구애 없이<br>원하는 만큼 <strong>자유롭게!</strong></p>
+                            <p><strong>출퇴근 없이</strong><br>내가 가능한 시간에!<br><br>시간과 장소에 구애 없이<br>원하는 만큼
+                                <strong>자유롭게!</strong></p>
                         </div>
                     </div>
                     <!-- Benefit 2 -->
@@ -180,8 +181,10 @@
         <section class="supporter-reviews">
             <div class="container">
                 <h2 class="section-title reveal">평범한 일상이 특별한 변화로,<br><span class="premium-gradient">리얼 체험기</span></h2>
-                <div class="review-vlog reveal" style="background: transparent; cursor: pointer; transform: none; box-shadow: none; position: relative;">
-                    <video id="review-video" src="./미디어1.mp4" poster="./supporter_vlog_thumbnail_1774775370220.png" class="vlog-thumb" playsinline controls muted preload="metadata"
+                <div class="review-vlog reveal"
+                    style="background: transparent; cursor: pointer; transform: none; box-shadow: none; position: relative;">
+                    <video id="review-video" src="./미디어1.mp4" poster="./supporter_vlog_thumbnail_1774775370220.png"
+                        class="vlog-thumb" playsinline controls muted preload="metadata"
                         style="width: 100%; border-radius: 32px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); outline: none; display: block;"></video>
                     <!-- Unmute Overlay -->
                     <div id="unmute-btn" class="unmute-overlay">
@@ -228,10 +231,12 @@
                     <div class="growth-content glass">
                         <div class="member-proof">
                             <div class="avatar-stack">
-                                <img src="https://i.pravatar.cc/100?u=1" alt="Member" class="avatar">
-                                <img src="https://i.pravatar.cc/100?u=2" alt="Member" class="avatar">
-                                <img src="https://i.pravatar.cc/100?u=3" alt="Member" class="avatar">
-                                <img src="https://i.pravatar.cc/100?u=4" alt="Member" class="avatar">
+                                <img src="./멘토1.jpg" alt="멘토 1" class="avatar">
+                                <img src="./멘토2.png" alt="멘토 2" class="avatar">
+                                <img src="./멘토3.jpg" alt="멘토 3" class="avatar">
+                                <img src="./멘토4.png" alt="멘토 4" class="avatar">
+                                <img src="./멘토5.jpg" alt="멘토 5" class="avatar">
+                                <img src="./멘토6.jpg" alt="멘토 6" class="avatar">
                                 <div class="avatar-more">+1,400</div>
                             </div>
                             <p class="member-text"><strong>1,400+명</strong>의 멘토가 함께하고 있습니다.</p>
@@ -345,7 +350,16 @@
                                 입력하신 정보는 면담 검토, 일정 조율, 연락 목적에 한해 사용되며 그 외 용도로 사용되지 않습니다.
                             </p>
                         </div>
-                        <button type="submit" class="btn-submit">세미나 예약하고<br class="mo-br">4만원 광고비 받기 →</button>
+                        <div class="urgency-box-form" style="margin-top: 2rem; background: rgba(0,0,0,0.4); padding: 2.5rem 1.5rem; border-radius: 24px; border: 2px solid rgba(211, 47, 47, 0.4); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                            <div class="urgency-timer-group" style="align-items: center; margin-bottom: 1.5rem;">
+                                <span class="urgency-deadline" style="font-size: 1.1rem; color: #FF5252; font-weight: 700;">4월 모집 마감 임박</span>
+                                <div class="urgency-counter" style="display: flex; align-items: center; gap: 10px;">
+                                    <span class="icon-siren" style="font-size: 2.5rem; animation: SirenPulse 1s infinite alternate;">🚨</span>
+                                    <span class="countdown-timer" style="font-size: 3rem; font-weight: 900; color: white; letter-spacing: 2px; font-family: 'Outfit', sans-serif;">00 : 00 : 00</span>
+                                </div>
+                            </div>
+                            <button type="submit" class="urgency-btn" style="width: 100%; max-width: 100%; white-space: normal; padding: 1.5rem; font-size: 1.3rem;">세미나 예약하고<br class="mo-br">4만원 광고비 받기 →</button>
+                        </div>
                     </form>
                     <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">
                         ※ 본 광고 보상은 세미나 참석 완료 확인 후 현장에서 지급됩니다.
@@ -355,11 +369,18 @@
         </section>
 
         <!-- Floating CTA -->
-        <div id="floating-cta-container" class="hidden">
-            <div class="cta-inner">
-                <button type="button" class="btn-floating"
+        <div id="floating-cta-container" class="hidden urgency-mode">
+            <div class="cta-inner urgency-inner">
+                <div class="urgency-timer-group">
+                    <span class="urgency-deadline">4월 모집 마감 제한</span>
+                    <div class="urgency-counter">
+                        <span class="icon-siren">🚨</span>
+                        <span class="countdown-timer">00 : 00 : 00</span>
+                    </div>
+                </div>
+                <button type="button" class="btn-floating urgency-btn"
                     onclick="document.querySelector('.rsvp-section').scrollIntoView({ behavior: 'smooth' })">
-                    세미나 예약하고<br class="mo-br">4만원 광고비 받기 →
+                    세미나 예약하고<br class="mo-br">4만원 받기 →
                 </button>
             </div>
         </div>

@@ -107,3 +107,29 @@ if (reviewVideo) {
         });
     }
 }
+
+// Urgency Countdown Timer Update (Midnight deadline)
+function updateCounters() {
+    const timers = document.querySelectorAll('.countdown-timer');
+    if (!timers.length) return;
+
+    const now = new Date();
+    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const diff = tomorrow - now;
+
+    if (diff <= 0) {
+        timers.forEach(timer => timer.textContent = '00 : 00 : 00');
+        return;
+    }
+
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    const format = (num) => num.toString().padStart(2, '0');
+    const timeString = `${format(h)} : ${format(m)} : ${format(s)}`;
+    
+    timers.forEach(timer => timer.textContent = timeString);
+}
+setInterval(updateCounters, 1000);
+updateCounters();
