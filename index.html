@@ -293,66 +293,124 @@
             <div class="container">
                 <div class="form-wrapper glass reveal">
                     <h2 style="text-align: center; margin-bottom: 3rem;">세미나 참여 등록<br>4만원 광고 보상 신청</h2>
-                    <form id="rsvp-form">
-                        <div class="form-group">
-                            <label for="name">성함</label>
-                            <input type="text" id="name" placeholder="실명을 입력해주세요" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">연락처</label>
-                            <input type="tel" id="phone" placeholder="010-0000-0000" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="referer">유입 경로 (가게명) - <small>QR 스캐닝 시 자동 반영됩니다</small></label>
-                            <input type="text" id="referer" placeholder="방문하신 매장명을 입력해주세요" readonly
-                                style="background: rgba(255, 255, 255, 0.02); color: var(--text-muted); cursor: not-allowed;">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="job">현재 직업</label>
-                                <input type="text" id="job" placeholder="예: 직장인, 주부 등" required>
+                    <!-- Multi-step Progress Bar -->
+                    <div class="stepper-progress">
+                        <div class="progress-fill" id="progress-bar"></div>
+                    </div>
+
+                    <form id="rsvp-form" class="form-stepper">
+                        <!-- Step 1: Name -->
+                        <div class="form-step active" data-step="1">
+                            <div class="step-header">
+                                <h3>본인 확인을 위해<br>성함을 입력해 주세요.</h3>
+                                <p class="step-subtitle">정확한 실명을 입력해 주셔야 리워드가 지급됩니다.</p>
                             </div>
                             <div class="form-group">
-                                <label for="age">연령대</label>
-                                <select id="age" required>
-                                    <option value="" disabled selected>선택해주세요</option>
-                                    <option value="20대">20대</option>
-                                    <option value="30대">30대</option>
-                                    <option value="40대">40대</option>
-                                    <option value="50대">50대</option>
-                                    <option value="60대 이상">60대 이상</option>
-                                </select>
+                                <label for="name">성함</label>
+                                <input type="text" id="name" placeholder="실명을 입력해주세요" required>
+                            </div>
+                            <div class="stepper-actions">
+                                <button type="button" class="btn-next">다음으로</button>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>세미나 참여 방식 선호</label>
-                            <div class="preference-options">
-                                <label class="pref-card">
-                                    <input type="radio" name="preference" value="1:1 세미나" checked required>
-                                    <div class="pref-content">
-                                        <span class="icon">👤</span>
-                                        <span class="label">1:1 세미나</span>
-                                    </div>
-                                </label>
-                                <label class="pref-card">
-                                    <input type="radio" name="preference" value="단체 세미나">
-                                    <div class="pref-content">
-                                        <span class="icon">👥</span>
-                                        <span class="label">단체 세미나</span>
-                                    </div>
-                                </label>
+
+                        <!-- Step 2: Phone -->
+                        <div class="form-step" data-step="2">
+                            <div class="step-header">
+                                <h3>매칭 및 보상 안내를 위한<br>연락처를 입력해 주세요.</h3>
+                                <p class="step-subtitle">안내 문자가 이 번호로 발송됩니다.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">연락처</label>
+                                <input type="tel" id="phone" placeholder="010-0000-0000" required>
+                            </div>
+                            <div class="stepper-actions">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">다음으로</button>
                             </div>
                         </div>
-                        <div class="privacy-consent-group">
-                            <label class="checkbox-container">
-                                <input type="checkbox" id="privacy-agreement" required>
-                                <span class="checkbox-label">개인정보 수집 및 연락에<br class="mo-br">동의 합니다.</span>
-                            </label>
-                            <p class="privacy-detail">
-                                입력하신 정보는 면담 검토, 일정 조율, 연락 목적에 한해 사용되며 그 외 용도로 사용되지 않습니다.
-                            </p>
+
+                        <!-- Step 3: Referral (Auto-filled) -->
+                        <div class="form-step" data-step="3">
+                            <div class="step-header">
+                                <h3>방문하신 매장 정보를<br>확인합니다.</h3>
+                                <p class="step-subtitle">매장별 혜택이 상이할 수 있습니다.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="referer">유입 경로 (가게명)</label>
+                                <input type="text" id="referer" placeholder="방문하신 매장명을 입력해주세요" readonly
+                                    style="background: rgba(255, 255, 255, 0.02); color: var(--text-muted); cursor: not-allowed;">
+                            </div>
+                            <div class="stepper-actions">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">다음으로</button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn-submit">세미나 예약하고<br class="mo-br">4만원 받기 →</button>
+
+                        <!-- Step 4: Job & Age -->
+                        <div class="form-step" data-step="4">
+                            <div class="step-header">
+                                <h3>맞춤 멘토 매칭을 위한<br>기본 정보를 공유해 주세요.</h3>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="job">현재 직업</label>
+                                    <input type="text" id="job" placeholder="예: 직장인, 주부 등" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">연령대</label>
+                                    <select id="age" required>
+                                        <option value="" disabled selected>선택해주세요</option>
+                                        <option value="20대">20대</option>
+                                        <option value="30대">30대</option>
+                                        <option value="40대">40대</option>
+                                        <option value="50대">50대</option>
+                                        <option value="60대 이상">60대 이상</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="stepper-actions">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="button" class="btn-next">다음으로</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Preference & Submit -->
+                        <div class="form-step" data-step="5">
+                            <div class="step-header">
+                                <h3>마지막입니다!<br>원하시는 세미나 방식을 선택하세요.</h3>
+                            </div>
+                            <div class="form-group">
+                                <div class="preference-options" style="margin-bottom: 2rem;">
+                                    <label class="pref-card">
+                                        <input type="radio" name="preference" value="1:1 세미나" checked required>
+                                        <div class="pref-content">
+                                            <span class="icon">👤</span>
+                                            <span class="label">1:1 세미나</span>
+                                        </div>
+                                    </label>
+                                    <label class="pref-card">
+                                        <input type="radio" name="preference" value="단체 세미나">
+                                        <div class="pref-content">
+                                            <span class="icon">👥</span>
+                                            <span class="label">단체 세미나</span>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="privacy-consent-group" style="padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="privacy-agreement" required>
+                                        <span class="checkbox-label">개인정보 수집 및 연락 동의</span>
+                                    </label>
+                                    <p class="privacy-detail">※ 세미나 참석 완료 후 4만원 보상이 지급됩니다.</p>
+                                </div>
+                            </div>
+                            <div class="stepper-actions">
+                                <button type="button" class="btn-prev">이전</button>
+                                <button type="submit" class="btn-next">예약 신청하고 4만원 받기 →</button>
+                            </div>
+                        </div>
                     </form>
                     <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">
                         ※ 본 광고 보상은 세미나 참석 완료 확인 후 현장에서 지급됩니다.

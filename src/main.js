@@ -55,21 +55,91 @@ if (shopName) {
     }
 }
 
-// Form Submission Logic
+// Multi-step Stepper Form Logic
+const formSteps = document.querySelectorAll('.form-step');
+const progressBar = document.getElementById('progress-bar');
+let currentStep = 1;
+const totalSteps = formSteps.length;
+
+function updateStepper() {
+    formSteps.forEach(step => {
+        const stepNum = parseInt(step.dataset.step);
+        step.classList.toggle('active', stepNum === currentStep);
+    });
+    
+    // Update progress bar
+    if (progressBar) {
+        const progress = (currentStep / totalSteps) * 100;
+        progressBar.style.width = `${progress}%`;
+    }
+    
+    // Visual feedback for mobile (scroll back to top of form)
+    if (currentStep > 1) {
+        const formHeader = document.querySelector('.form-wrapper h2');
+        if (formHeader) {
+            formHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+}
+
+// Next/Prev Navigation
+document.querySelectorAll('.btn-next').forEach(btn => {
+    // Only handle 'next' logic for type="button" buttons. Submit button is handled by form submit.
+    if (btn.type === 'button') {
+        btn.addEventListener('click', () => {
+            const stepEl = formSteps[currentStep - 1];
+            const inputs = stepEl.querySelectorAll('input:not([type="radio"]), select');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (input.hasAttribute('required') && !input.value) {
+                    input.style.borderColor = '#ff4444';
+                    input.focus();
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+
+            if (isValid && currentStep < totalSteps) {
+                currentStep++;
+                updateStepper();
+            }
+        });
+    }
+});
+
+document.querySelectorAll('.btn-prev').forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (currentStep > 1) {
+            currentStep--;
+            updateStepper();
+        }
+    });
+});
+
+// Final Form Submission
 const rsvpForm = document.querySelector('#rsvp-form');
 if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        
+        // Final validate
+        const privacy = document.getElementById('privacy-agreement');
+        if (!privacy.checked) {
+            alert('개인정보 수집 및 연락 동의가 필요합니다.');
+            return;
+        }
+
         const name = document.querySelector('#name').value;
-        const phone = document.querySelector('#phone').value;
-        const referer = document.querySelector('#referer').value;
-        const job = document.querySelector('#job').value;
-        const age = document.querySelector('#age').value;
         const preference = document.querySelector('input[name="preference"]:checked').value;
 
         alert(`감사합니다, ${name}님!\n\n현재 ${preference} 방식으로 세미나 예약이 접수되었습니다.\n4만원 광고 보상 수령 대상자로 등록되었으며, 곧 안내 연락을 드리겠습니다.`);
-        console.log('Form Submitted:', { name, phone, referer, job, age, preference });
+        
+        // Reset and go back to first step
         rsvpForm.reset();
+        currentStep = 1;
+        updateStepper();
     });
 }
 
