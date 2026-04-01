@@ -78,13 +78,14 @@ body {
 
 /* Hero Section */
 .hero {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: 100px;
+  padding-bottom: 20px;
 }
 
 .hero::before {
@@ -145,14 +146,14 @@ body {
 
 /* Section Common */
 section {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 /* Reward Logic */
@@ -203,53 +204,311 @@ section {
   color: var(--text-muted);
 }
 
-/* Today's Featured Ad */
+.reward-system {
+  padding-top: 20px;
+}
+
+/* Today's Featured Ad (Redesigned) */
 .featured-ad {
-  background: linear-gradient(to bottom, transparent, rgba(0, 86, 179, 0.1), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(0, 86, 179, 0.05), transparent);
+  padding: 120px 0;
 }
 
 .ad-container {
   display: flex;
-  gap: 4rem;
-  align-items: center;
+  gap: 5rem;
+  align-items: flex-start;
+  margin-bottom: 4rem;
 }
 
 .ad-info {
-  flex: 1;
+  flex: 1.2;
 }
 
 .ad-visual {
   flex: 1;
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 100px;
 }
 
 .guarantee-img {
-  max-width: 400px;
+  width: 100%;
+  max-width: 450px;
   animation: float 6s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+/* Reward Highlight Box */
+.reward-highlight-box {
+  background: rgba(0, 242, 254, 0.1);
+  padding: 1.2rem 1.8rem;
+  border-radius: 16px;
+  border-left: 5px solid var(--primary);
+  margin-bottom: 2rem;
+  backdrop-filter: blur(5px);
 }
 
-.benefits-list {
+.highlight-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white !important;
+  margin: 0 !important;
+}
+
+.seminar-details {
   list-style: none;
-  margin: 2rem 0;
+  margin-bottom: 3rem;
+  padding-left: 0.5rem;
 }
 
-.benefits-list li {
-  margin-bottom: 1rem;
+.seminar-details li {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-.benefits-list li::before {
-  content: '✓';
-  color: var(--locallink-green);
+.seminar-details li::before {
+  content: '✦';
+  color: var(--primary);
   font-weight: bold;
+}
+
+.emotional-quote {
+  padding: 2rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+/* Revenue Insight Card */
+.revenue-insight-card {
+  padding: 3rem;
+  text-align: center;
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 242, 254, 0.05) 100%);
+  margin-top: 2rem;
+}
+
+.revenue-label {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.revenue-amount {
+  font-size: 5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 1rem;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+}
+
+.revenue-amount .unit {
+  font-size: 2rem;
+  margin-left: 8px;
+  opacity: 0.8;
+}
+
+.revenue-basis {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+
+.revenue-disclaimer {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.participation-guarantee {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background: rgba(0, 242, 254, 0.05);
+  border-left: 4px solid var(--primary);
+  border-radius: 4px 16px 16px 4px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.participation-guarantee .highlight {
+  color: var(--primary);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+/* Mentor Vision Section */
+.mentor-vision-wrapper {
+  margin-top: 4rem;
+}
+
+.mentor-vision-card {
+  padding: 6rem 3rem;
+  text-align: center;
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  background: radial-gradient(circle at 50% 0%, rgba(255, 170, 0, 0.08), transparent 60%);
+  position: relative;
+  overflow: hidden;
+}
+
+.growth-badge {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, #FF6B00, #FFCC00);
+  color: #000;
+  font-weight: 800;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+  animation: badge-pulse 2s infinite ease-in-out;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { transform: translateY(0); box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3); }
+  50% { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(255, 107, 0, 0.5); }
+}
+
+.vision-title {
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.25;
+  letter-spacing: -1.5px;
+  color: #fff;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.highlight-gradient {
+  background: linear-gradient(to right, #00F2FE, #4FACFE);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.vision-main {
+  font-size: 1.6rem;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+.income-goal {
+  color: var(--primary);
+  font-weight: 700;
+  position: relative;
+}
+
+.income-goal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 242, 254, 0.15);
+  z-index: -1;
+}
+
+.vision-disclaimer {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.mentor-heart-message {
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.main-msg {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.msg-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+  opacity: 0.3;
+  margin: 1.5rem auto;
+}
+
+.sub-msg {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-main);
+  opacity: 0.9;
+}
+
+/* Benefit Grid */
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 5rem;
+}
+
+.benefit-card {
+  padding: 4rem 2.5rem;
+  text-align: left;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.benefit-card:hover {
+  transform: translateY(-15px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.benefit-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 2.5rem;
+}
+
+.benefit-icon img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.5));
+}
+
+.benefit-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.benefit-card p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-muted);
 }
 
 /* RSVP Form */
@@ -538,14 +797,73 @@ input:focus {
   color: var(--text-muted);
 }
 
+/* Brand Identity Section Updates */
+.brand-identity {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.brand-logo-container {
+  background: white;
+  padding: 2.5rem 4rem;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-main-logo {
+  max-width: 280px;
+  height: auto;
+}
+
+.brand-desc {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  letter-spacing: -0.2px;
+}
+
+.brand-desc .highlight-text {
+  color: white;
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary);
+}
+
+.brand-power-badge {
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  margin-bottom: 4rem;
+}
+
+.brand-power-badge p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.power-title {
+  color: white;
+  font-weight: 600;
+}
+
+.power-divider {
+  opacity: 0.3;
+  margin: 0 1rem;
+}
+
 /* Responsive Extensions */
 @media (max-width: 968px) {
-  .hero h1 { font-size: 2.5rem; }
-  .logic-grid { grid-template-columns: 1fr; }
-  .ad-container { flex-direction: column; text-align: center; }
-  .benefits-list li { justify-content: center; }
+  .hero h1 { font-size: 2.2rem; }
+  .logic-grid { flex-direction: column; align-items: center; }
   .form-wrapper { padding: 2rem; }
-  .curriculum-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 1.5rem; }
 }
 
 /* Floating CTA */
@@ -691,6 +1009,10 @@ input:focus {
 }
 
 @media (max-width: 968px) {
+  h1, h2, h3, h4, .section-title, p {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
   .stats-grid { 
     grid-template-columns: 1fr !important; 
     gap: 1.5rem;
@@ -1191,15 +1513,47 @@ input:focus {
   letter-spacing: 0.5px;
 }
 
-@media (max-width: 968px) {
-  .trend-card h2 { font-size: 2.4rem; }
-  .trend-main-text { font-size: 1.3rem; }
-  .trend-cta-text { font-size: 1.3rem; }
-}
-
 @media (max-width: 480px) {
   .trend-card { padding: 4rem 1.5rem; }
   .trend-card h2 { font-size: 1.8rem; }
   .brand-list { gap: 0.8rem; }
   .brand-list span { font-size: 0.85rem; }
+}
+
+@media (max-width: 968px) {
+  .featured-ad .ad-container {
+    flex-direction: column-reverse !important;
+    gap: 3rem;
+  }
+  .featured-ad .ad-info {
+    text-align: left;
+    width: 100%;
+  }
+  .featured-ad .ad-visual {
+    position: static;
+    width: 100%;
+  }
+  .revenue-amount {
+    font-size: 3.5rem;
+  }
+  .revenue-insight-card {
+    padding: 2rem;
+  }
+  .benefit-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+  .mentor-vision-card {
+    padding: 3rem 1.5rem;
+  }
+  .mentor-vision-card h3 {
+    font-size: 1.8rem;
+  }
+  .vision-main {
+    font-size: 1.2rem;
+  }
+  .mentor-heart-message {
+    font-size: 1.1rem;
+    padding: 2rem 1.5rem;
+  }
 }
