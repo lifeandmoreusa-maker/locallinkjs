@@ -1557,3 +1557,41 @@ input:focus {
     padding: 2rem 1.5rem;
   }
 }
+
+/* Mobile Intuitiveness & Readability Enhancement (한 커트씩 크게 보이기) */
+@media (max-width: 768px) {
+  /* Hero section full screen for one-cut impact */
+  .hero { min-height: 90vh; padding-top: 100px; display: flex; flex-direction: column; justify-content: center; }
+  .hero h1 { font-size: 2.6rem; line-height: 1.35; margin-bottom: 2rem; }
+  .hero p { font-size: 1.25rem; margin-bottom: 3rem; }
+  
+  /* Section spacing and Titles */
+  section { padding: 90px 0; }
+  .section-title { font-size: 2.2rem; line-height: 1.4; margin-bottom: 3rem; }
+  
+  /* Big Cards */
+  .logic-card, .benefit-card, .trend-card {
+    padding: 3.5rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .logic-card h3, .benefit-card h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+  .logic-card p, .benefit-card p { font-size: 1.2rem; }
+  
+  /* Featured Ad Text Scaling */
+  .reward-highlight-box .highlight-text { font-size: 1.4rem !important; }
+  .seminar-details li { font-size: 1.2rem; margin-bottom: 1.2rem; }
+  .revenue-amount { font-size: 4rem; }
+  
+  /* Mentor Vision */
+  .vision-title { font-size: 2.2rem; }
+  .vision-main { font-size: 1.4rem; }
+  
+  /* Brand Info */
+  .brand-logo-container { padding: 2rem; }
+  .brand-main-logo { max-width: 220px; }
+  .stat-card .stat-value { font-size: 2.4rem; }
+  
+  /* Form */
+  .form-wrapper { padding: 2.5rem 1.5rem; }
+  input, select, .btn-submit { font-size: 1.15rem; padding: 1.4rem; }
+}
