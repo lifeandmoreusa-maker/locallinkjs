@@ -880,24 +880,98 @@ input:focus {
 
 @media (max-width: 768px) {
   .urgency-inner {
-    flex-direction: column;
-    gap: 1.2rem;
-    padding: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 8px 10px;
   }
   .urgency-timer-group {
-    align-items: center;
-    width: 100%;
+    align-items: flex-start;
+    width: auto;
   }
-  .urgency-btn {
-    width: 100%;
-    max-width: 100%;
-    white-space: normal;
+  .urgency-deadline {
+    font-size: 0.7rem;
+    margin-bottom: 2px;
+  }
+  .icon-siren {
+    font-size: 1.2rem;
   }
   .countdown-timer {
-    font-size: 2.2rem;
+    font-size: 1.2rem;
+  }
+  .urgency-btn {
+    width: auto;
+    font-size: 0.85rem;
+    padding: 0.8rem 1rem;
+    white-space: nowrap;
   }
 }
 
+/* Secondary Inline Urgency Form Box */
+.urgency-box-inline {
+  margin-top: 2rem;
+  background: rgba(0,0,0,0.4);
+  padding: 2.5rem 1.5rem;
+  border-radius: 24px;
+  border: 2px solid rgba(211, 47, 47, 0.4);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.urgency-inline-group {
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.urgency-inline-deadline {
+  font-size: 1.1rem;
+}
+
+.urgency-inline-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.urgency-inline-siren {
+  font-size: 2.5rem;
+}
+
+.urgency-inline-timer {
+  font-size: 3rem;
+}
+
+.urgency-inline-btn {
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+  .urgency-box-inline {
+    padding: 1.5rem 1rem;
+  }
+  .urgency-inline-deadline {
+    font-size: 0.9rem;
+  }
+  .urgency-inline-siren {
+    font-size: 1.8rem;
+  }
+  .urgency-inline-timer {
+    font-size: 2.1rem;
+  }
+  .urgency-inline-btn {
+    padding: 1rem;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  .urgency-inline-group {
+    margin-bottom: 1rem;
+  }
+}
 
 .vlog-thumb {
   width: 100%;
