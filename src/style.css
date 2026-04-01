@@ -1442,25 +1442,49 @@ input:focus {
   margin: 0 auto;
 }
 
-.brand-list {
+.brand-tags-container {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  gap: 1.2rem;
+  margin-bottom: 3.5rem;
   flex-wrap: wrap;
 }
 
-.brand-list span {
-  color: var(--text-muted);
-  font-size: 1rem;
-  letter-spacing: 1px;
-  font-weight: 500;
+.brand-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  color: white;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: float-tag 5s infinite ease-in-out;
 }
 
-.brand-list span:not(:last-child)::after {
-  content: '·';
-  margin-left: 1.5rem;
-  opacity: 0.5;
+.brand-tag:nth-child(2) { animation-delay: -1.5s; }
+.brand-tag:nth-child(3) { animation-delay: -3s; }
+
+.brand-tag span {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.brand-tag:hover {
+  transform: translateY(-8px) scale(1.05);
+  border-color: var(--primary);
+  background: rgba(0, 242, 254, 0.08);
+  box-shadow: 0 15px 30px rgba(0, 242, 254, 0.2);
+}
+
+@keyframes float-tag {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 .trend-card h2 {
@@ -1516,8 +1540,9 @@ input:focus {
 @media (max-width: 480px) {
   .trend-card { padding: 4rem 1.5rem; }
   .trend-card h2 { font-size: 1.8rem; }
-  .brand-list { gap: 0.8rem; }
-  .brand-list span { font-size: 0.85rem; }
+  .brand-tags-container { gap: 0.8rem; }
+  .brand-tag { font-size: 0.95rem; padding: 0.6rem 1.2rem; }
+  .brand-tag span { font-size: 1rem; }
 }
 
 @media (max-width: 968px) {
@@ -1558,8 +1583,12 @@ input:focus {
   }
 }
 
+/* Mobile Line Breaks */
+.mo-br { display: none; }
+
 /* Mobile Intuitiveness & Readability Enhancement (한 커트씩 크게 보이기) */
 @media (max-width: 768px) {
+  .mo-br { display: block; }
   /* Hero section full screen for one-cut impact */
   .hero { min-height: 90vh; padding-top: 100px; display: flex; flex-direction: column; justify-content: center; }
   .hero h1 { font-size: 2.6rem; line-height: 1.35; margin-bottom: 2rem; }
@@ -1594,4 +1623,10 @@ input:focus {
   /* Form */
   .form-wrapper { padding: 2.5rem 1.5rem; }
   input, select, .btn-submit { font-size: 1.15rem; padding: 1.4rem; }
+
+  /* Brand Trust Single Line Fix */
+  .brand-power-badge { padding: 1.5rem 1.2rem; border-radius: 20px; width: 100%; box-sizing: border-box; }
+  .brand-power-list { display: flex; flex-direction: column; gap: 0.8rem; align-items: center; }
+  .power-divider { display: none; }
+  .power-item { display: block; text-align: center; font-size: 1.15rem; white-space: nowrap; }
 }
