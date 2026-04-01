@@ -881,29 +881,47 @@ input:focus {
 @media (max-width: 768px) {
   .urgency-inner {
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
-    padding: 8px 10px;
+    gap: 8px;
+    padding: 8px 12px;
+    width: 100%;
   }
   .urgency-timer-group {
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
     width: auto;
+    flex: 1;
+    overflow: hidden;
   }
   .urgency-deadline {
-    font-size: 0.7rem;
-    margin-bottom: 2px;
+    font-size: 0.75rem;
+    margin-bottom: 0;
+    white-space: nowrap;
+    opacity: 0.9;
+  }
+  .urgency-counter {
+    gap: 4px;
+    align-items: center;
   }
   .icon-siren {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .countdown-timer {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    min-width: 80px;
   }
   .urgency-btn {
     width: auto;
+    flex: 0 0 auto;
     font-size: 0.85rem;
-    padding: 0.8rem 1rem;
+    padding: 0.7rem 1rem;
     white-space: nowrap;
+    line-height: 1.2;
+    border-radius: 8px;
   }
 }
 
