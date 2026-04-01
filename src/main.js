@@ -43,7 +43,7 @@ window.addEventListener('scroll', () => {
  */
 const urlParams = new URLSearchParams(window.location.search);
 const shopName = urlParams.get('shop') || '로컬 매장';
-const shopElements = document.querySelectorAll('#shop-name');
+const shopElements = document.querySelectorAll('.shop-name');
 const refererInput = document.querySelector('#referer');
 
 if (shopName) {

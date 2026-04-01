@@ -883,7 +883,7 @@ input:focus {
     flex-direction: row;
     align-items: center;
     justify-content: space-between; /* Change to space-between for side margins */
-    gap: 10px;
+    gap: 6px;
     padding: 10px 14px; /* Sufficient left/right padding to prevent clipping */
     width: 100%;
     box-sizing: border-box;
@@ -926,16 +926,13 @@ input:focus {
   }
   .urgency-btn {
     width: auto;
-    flex: 0 1 auto; /* Allow button to shrink if screen is very narrow */
-    font-size: 0.68rem; /* Further reduced from 0.72rem */
-    padding: 0.6rem 0.8rem;
+    flex: 0 1 auto;
+    font-size: 0.65rem; /* Shrunk further */
+    padding: 0.5rem 0.6rem; /* Tighter padding */
     white-space: nowrap;
     border-radius: 6px;
-    line-height: 1;
-    min-width: 130px; /* Limit button's min-width */
-    letter-spacing: -0.2px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.2;
+    letter-spacing: -0.5px; /* Tighter letter-spacing */
   }
 }
 
