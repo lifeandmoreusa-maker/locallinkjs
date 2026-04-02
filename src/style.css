@@ -1937,6 +1937,11 @@ input:focus {
   .brand-power-list { display: flex; flex-direction: column; gap: 0.8rem; align-items: center; }
   .power-divider { display: none; }
   .power-item { display: block; text-align: center; font-size: 1.15rem; white-space: nowrap; }
+
+  .mo-stack {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
 }
 
 /* Multi-step Form Styles */
