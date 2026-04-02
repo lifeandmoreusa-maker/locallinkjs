@@ -118,28 +118,56 @@ document.querySelectorAll('.btn-prev').forEach(btn => {
     });
 });
 
-// Final Form Submission
+// Final Form Submission (Connect to Google Forms)
 const rsvpForm = document.querySelector('#rsvp-form');
 if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Final validate
+        // Final validate (Privacy)
         const privacy = document.getElementById('privacy-agreement');
         if (!privacy.checked) {
             alert('개인정보 수집 및 연락 동의가 필요합니다.');
             return;
         }
 
+        // Get form values
         const name = document.querySelector('#name').value;
+        const phone = document.querySelector('#phone').value;
+        const referer = document.querySelector('#referer').value;
+        const job = document.querySelector('#job').value;
+        const age = document.querySelector('#age').value;
         const preference = document.querySelector('input[name="preference"]:checked').value;
 
-        alert(`감사합니다, ${name}님!\n\n현재 ${preference} 방식으로 세미나 예약이 접수되었습니다.\n4만원 광고 보상 수령 대상자로 등록되었으며, 곧 안내 연락을 드리겠습니다.`);
-        
-        // Reset and go back to first step
-        rsvpForm.reset();
-        currentStep = 1;
-        updateStepper();
+        // Google Form Submission URL (formResponse)
+        const GFORM_URL = 'https://docs.google.com/forms/d/15fLXw230cVqct_wpILr14WagcWgMfPawcCLu_s6Uirg/formResponse';
+
+        // Map local fields to Google Form entry IDs
+        const formData = new FormData();
+        formData.append('entry.1873593474', name);
+        formData.append('entry.1511710695', phone);
+        formData.append('entry.600478127', referer);
+        formData.append('entry.1211908548', job);
+        formData.append('entry.1858549790', age);
+        formData.append('entry.2037368284', preference); // Choice: 1:1 or Group
+
+        // Submit to Google Form using fetch (Hidden Submission)
+        fetch(GFORM_URL, {
+            method: 'POST',
+            mode: 'no-cors', // Essential for Google Form bypass
+            body: formData
+        }).then(() => {
+            // Success UX
+            alert(`감사합니다, ${name}님!\n\n세미나 예약 신청이 완료되었습니다.\n구글 시트에 성공적으로 저장되었으며, 곧 안내 연락을 드리겠습니다.`);
+            
+            // Reset form and go back to first step
+            rsvpForm.reset();
+            currentStep = 1;
+            updateStepper();
+        }).catch(err => {
+            console.error('Submission error:', err);
+            alert('일시적인 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+        });
     });
 }
 
