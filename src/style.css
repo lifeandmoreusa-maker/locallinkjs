@@ -1919,6 +1919,15 @@ input:focus {
   .brand-main-logo { max-width: 220px; }
   .stat-card .stat-value { font-size: 2.4rem; }
   
+  .brand-desc {
+    text-align: center;
+    width: 100%;
+    margin: 1.5rem 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+  
   /* Form */
   .form-wrapper { padding: 2.5rem 1.5rem; }
   input, select, .btn-submit { font-size: 1.15rem; padding: 1.4rem; }
