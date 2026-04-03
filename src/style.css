@@ -1332,7 +1332,7 @@ input:focus {
 }
 
 .growth-header {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto 5rem;
   text-align: center;
 }
@@ -1346,6 +1346,15 @@ input:focus {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.2;
+  white-space: nowrap; /* Force one line on desktop */
+}
+
+/* Responsive adjustment for title to allow wrapping on smaller screens */
+@media (max-width: 1100px) {
+  .growth-main-title {
+    white-space: normal;
+    font-size: 2.8rem;
+  }
 }
 
 .growth-sub-title {
