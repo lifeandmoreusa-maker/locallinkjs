@@ -278,11 +278,6 @@ section {
   line-height: 1.5;
 }
 
-.seminar-details li::before {
-  content: '✦';
-  color: var(--primary);
-  font-weight: bold;
-}
 
 .emotional-quote {
   padding: 2rem;
