@@ -1047,18 +1047,28 @@ input:focus {
   .label-text { font-size: 1.1rem; }
 }
 
-/* Hide Mobile Default Video Controls/Play Button */
+/* Hide Mobile Default Video Controls/Play Button - Enhanced */
 video::-webkit-media-controls-start-playback-button,
 video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-panel,
 video::-webkit-media-controls-enclosure {
   display: none !important;
-  -webkit-appearance: none;
+  opacity: 0 !important;
+  -webkit-appearance: none !important;
+}
+
+/* Force video to hide the grey box fallback */
+video:not([src]), video[src=""] {
+  display: none !important;
 }
 
 video {
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: -webkit-radial-gradient(white, black); /* Lint fix */
   -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
+  backface-visibility: hidden; /* Lint fix */
+  background: transparent !important;
 }
 
 .vlog-overlay {
