@@ -1010,46 +1010,47 @@ input:focus {
 
 .video-brand-label {
   position: absolute;
-  bottom: 0px;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 1.5rem 0;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 253, 250, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.1rem 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
-  border-bottom-left-radius: 32px;
-  border-bottom-right-radius: 32px;
+  z-index: 20;
+  border-radius: 60px;
   pointer-events: none;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-  border-top: 1px solid rgba(111, 228, 228, 0.1);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25), 0 0 15px rgba(111, 228, 228, 0.15);
+  border: 1.5px solid rgba(111, 228, 228, 0.2);
+  min-width: fit-content;
 }
 
 .label-text {
-  background: linear-gradient(135deg, #0f172a 0%, #1a2d24 100%);
+  background: linear-gradient(135deg, #062c2c 0%, #0d4a4a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 950;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   white-space: nowrap;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
   font-family: 'Outfit', sans-serif;
+  padding: 0.2rem 0;
 }
 
 @media (max-width: 768px) {
   .video-brand-label {
-    padding: 1.2rem 0;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
+    bottom: 1.2rem;
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
   }
   .label-text { 
     font-size: 2.1rem; 
-    letter-spacing: -0.03em;
+    letter-spacing: -0.01em;
   }
 }
 
