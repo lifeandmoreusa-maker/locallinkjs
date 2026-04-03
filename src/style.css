@@ -1428,11 +1428,31 @@ video {
 }
 
 .growth-sub-title {
-  font-size: 1.25rem;
-  color: var(--text-muted);
-  max-width: 750px;
+  font-size: 1.65rem;
+  color: #fff;
+  max-width: 850px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.8;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+  background: linear-gradient(135deg, #fff 30%, #ffd166 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+@media (max-width: 768px) {
+  .growth-sub-title {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    padding: 0 1rem;
+    background: linear-gradient(135deg, #fff 0%, #ffca28 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .growth-content {
