@@ -2162,4 +2162,67 @@ video {
   }
 }
 
+/* Reward Infographic Styling */
+.infographic-flow {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flow-card {
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.flow-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.highlight-flow {
+  animation: CardPulse 2s infinite alternate;
+}
+
+@keyframes CardPulse {
+  0% { box-shadow: 0 0 20px rgba(111, 228, 228, 0.1); }
+  100% { box-shadow: 0 0 40px rgba(111, 228, 228, 0.3); }
+}
+
+@media (max-width: 768px) {
+  .reward-infographic {
+    padding: 60px 0 40px !important;
+  }
+  .infographic-header {
+    margin-bottom: 3rem !important;
+  }
+  .flow-card {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 2.2rem 1.5rem !important;
+    gap: 1.2rem !important;
+  }
+  .flow-icon {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .flow-icon span {
+    font-size: 2.2rem !important;
+  }
+  .flow-text h3 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .flow-text p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+  .flow-number {
+    font-size: 6rem !important;
+    right: -10px !important;
+    bottom: -10px !important;
+  }
+}
+
 
