@@ -2540,6 +2540,7 @@ video {
   opacity: 0.9;
 }
 
+
 .reward-tagline {
   font-size: 1.4rem;
   color: #ffca28;
@@ -2550,6 +2551,14 @@ video {
   padding: 8px 24px;
   border-radius: 50px;
   border: 1px solid rgba(255, 202, 40, 0.2);
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+@media (max-width: 480px) {
+  .reward-tagline {
+    font-size: 1.15rem; /* Slightly smaller for mobile if needed */
+    padding: 6px 16px;
+  }
 }
 
 .feature-benefit-list {
