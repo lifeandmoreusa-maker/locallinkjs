@@ -1473,11 +1473,11 @@ video {
 }
 
 .avatar-stack .avatar {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 3px solid rgba(0, 0, 0, 0.5);
-  margin-left: -12px;
+  margin-left: -15px;
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -1487,17 +1487,17 @@ video {
 }
 
 .avatar-more {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   background: var(--primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: white;
-  margin-left: -12px;
+  margin-left: -15px;
   border: 3px solid rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
