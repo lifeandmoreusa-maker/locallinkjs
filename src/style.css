@@ -2274,3 +2274,104 @@ video {
   font-size: 1.2rem;
   line-height: 1;
 }
+
+/* New Compact Infographic */
+.infographic-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 40px;
+}
+
+.infographic-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+
+.info-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.info-icon-wrapper {
+  width: 90px;
+  height: 90px;
+  background: rgba(111, 228, 228, 0.1);
+  border: 2px solid rgba(111, 228, 228, 0.2);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.info-step:hover .info-icon-wrapper {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(111, 228, 228, 0.15);
+  border-color: #6fe4e4;
+  box-shadow: 0 15px 30px rgba(111, 228, 228, 0.2);
+}
+
+.info-content h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.info-content p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+.info-arrow {
+  flex-shrink: 0;
+  padding-top: 35px;
+  color: rgba(111, 228, 228, 0.3);
+  font-size: 1.5rem;
+  animation: arrowBounceHorizontal 2s infinite ease-in-out;
+}
+
+@keyframes arrowBounceHorizontal {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+
+@media (max-width: 850px) {
+  .infographic-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  .info-arrow {
+    padding-top: 0;
+    transform: rotate(90deg);
+    animation: arrowBounceVertical 2s infinite ease-in-out;
+  }
+  
+  .info-step {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@keyframes arrowBounceVertical {
+  0%, 100% { transform: rotate(90deg) translateX(0); }
+  50% { transform: rotate(90deg) translateX(10px); }
+}
