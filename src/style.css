@@ -2375,3 +2375,113 @@ video {
   0%, 100% { transform: rotate(90deg) translateX(0); }
   50% { transform: rotate(90deg) translateX(10px); }
 }
+
+/* Single-Box Direct Reward Infographic */
+.direct-reward-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(111, 228, 228, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1.5px solid rgba(111, 228, 228, 0.2);
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.direct-flow-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.direct-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  z-index: 2;
+}
+
+.direct-arrow-container {
+  flex: 1;
+  height: 4px;
+  background: rgba(111, 228, 228, 0.1);
+  position: relative;
+  border-radius: 2px;
+  min-width: 80px;
+}
+
+.direct-arrow-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #6fe4e4, #ffca28);
+  border-radius: 2px;
+  animation: directPulse 2s infinite ease-in-out;
+}
+
+.direct-arrow-tip {
+  position: absolute;
+  right: -5px;
+  top: -8px;
+  font-size: 1.4rem;
+  color: #ffca28;
+  animation: directPulse 2s infinite ease-in-out;
+}
+
+@keyframes directPulse {
+  0%, 100% { opacity: 0.4; transform: scaleX(0.95); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+.direct-text h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.direct-text p {
+  font-size: 1.15rem;
+  color: #eee;
+  line-height: 1.6;
+  font-weight: 500;
+  word-break: keep-all;
+}
+
+.direct-text .highlight-direct {
+  color: #ffca28;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(255, 202, 40, 0.4);
+}
+
+@media (max-width: 480px) {
+  .direct-reward-box {
+    padding: 2.5rem 1.5rem;
+    margin: 0 1rem;
+  }
+  .direct-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 2rem;
+  }
+  .direct-arrow-container {
+    min-width: 40px;
+  }
+  .direct-text h3 {
+    font-size: 1.3rem;
+  }
+}
