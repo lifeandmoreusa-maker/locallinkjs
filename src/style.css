@@ -2633,3 +2633,75 @@ video {
   40% {transform: translateY(-10px);}
   60% {transform: translateY(-5px);}
 }
+
+/* Participation Target Audience Grid */
+.target-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.target-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.8rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.target-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(111, 228, 228, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.target-card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 12px 0 0 0 !important;
+}
+
+.target-card.highlight {
+  background: rgba(255, 202, 40, 0.05);
+  border-color: rgba(255, 202, 40, 0.2);
+}
+
+.target-indicator {
+  width: 8px;
+  height: 8px;
+  background: #6fe4e4;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(111, 228, 228, 0.6);
+}
+
+.target-indicator.gold {
+  background: #ffca28;
+  box-shadow: 0 0 12px rgba(255, 202, 40, 0.6);
+}
+
+.gold-text {
+  color: #ffca28;
+  font-weight: 850;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+@media (max-width: 550px) {
+  .target-audience-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+}
