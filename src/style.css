@@ -2700,8 +2700,22 @@ video {
 
 @media (max-width: 550px) {
   .target-audience-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0 1rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+    padding: 0 0.4rem !important;
+  }
+  .target-card {
+    padding: 1.2rem 0.4rem !important;
+    border-radius: 16px;
+    min-width: 0; /* 내용이 넘쳐도 그리드를 깨지 않도록 설정 */
+  }
+  .target-card p {
+    font-size: 0.78rem !important; /* 텍스트가 넘칠 수 있으므로 살짝 더 축소 */
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+  .target-indicator {
+    width: 5px !important;
+    height: 5px !important;
   }
 }
