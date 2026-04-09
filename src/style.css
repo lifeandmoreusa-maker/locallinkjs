@@ -2719,3 +2719,26 @@ video {
     height: 5px !important;
   }
 }
+
+/* Custom Highlight for Seminar Action */
+.highlight-action {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: rgba(255, 202, 40, 0.12);
+  color: #ffca28;
+  border: 1.5px solid rgba(255, 202, 40, 0.35);
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 12px rgba(255, 202, 40, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: subtle-pulse 2s infinite ease-in-out;
+}
+
+@keyframes subtle-pulse {
+  0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+  50% { transform: scale(1.03); box-shadow: 0 6px 20px rgba(255, 202, 40, 0.15); }
+  100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+}
