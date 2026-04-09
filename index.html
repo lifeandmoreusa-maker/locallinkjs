@@ -547,6 +547,29 @@
                                 </label>
                             </div>
 
+                            <!-- 선호하는 시간대 추가 -->
+                            <div class="time-selection-group" style="margin-bottom: 2.5rem;">
+                                <label style="margin-bottom: 1rem; display: block; color: var(--text-muted); font-size: 0.95rem; font-weight: 600;">선호하는 시간대</label>
+                                <div class="time-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                                    <label class="time-chip">
+                                        <input type="radio" name="preferred-time" value="오전 (10:00~12:00)" required>
+                                        <span>오전 (10:00~12:00)</span>
+                                    </label>
+                                    <label class="time-chip">
+                                        <input type="radio" name="preferred-time" value="오후 (14:00~16:00)">
+                                        <span>오후 (14:00~16:00)</span>
+                                    </label>
+                                    <label class="time-chip">
+                                        <input type="radio" name="preferred-time" value="늦은 오후 (16:00~18:00)">
+                                        <span>늦은 오후 (16:00~18:00)</span>
+                                    </label>
+                                    <label class="time-chip">
+                                        <input type="radio" name="preferred-time" value="저녁 (19:00~21:00)">
+                                        <span>저녁 (19:00~21:00)</span>
+                                    </label>
+                                </div>
+                            </div>
+
                             <div class="privacy-consent-group"
                                 style="padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05);">
                                 <label class="checkbox-container">

@@ -2742,3 +2742,37 @@ video {
   50% { transform: scale(1.03); box-shadow: 0 6px 20px rgba(255, 202, 40, 0.15); }
   100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
 }
+
+/* Time Selection Chips */
+.time-chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.time-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.time-chip span {
+  display: block;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  padding: 1rem 0.5rem;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.time-chip input:checked + span {
+  background: rgba(0, 86, 179, 0.15);
+  border-color: var(--primary);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(0, 97, 255, 0.15);
+}
