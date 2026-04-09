@@ -138,6 +138,7 @@ if (rsvpForm) {
         const job = document.querySelector('#job').value;
         const age = document.querySelector('#age').value;
         const preference = document.querySelector('input[name="preference"]:checked').value;
+        const preferredTime = document.querySelector('input[name="preferred-time"]:checked').value; // 추가된 필드
 
         // Google Form Submission URL (formResponse)
         const GFORM_URL = 'https://docs.google.com/forms/d/15fLXw230cVqct_wpILr14WagcWgMfPawcCLu_s6Uirg/formResponse';
@@ -149,7 +150,8 @@ if (rsvpForm) {
         formData.append('entry.600478127', referer);
         formData.append('entry.1211908548', job);
         formData.append('entry.1858549790', age);
-        formData.append('entry.2037368284', preference); // Choice: 1:1 or Group
+        formData.append('entry.2037368284', preference); // 세미나 방식 (1:1/단체)
+        formData.append('entry.1963810709', preferredTime); // 선호 시간대 필드
 
         // Submit to Google Form using fetch (Hidden Submission)
         fetch(GFORM_URL, {
