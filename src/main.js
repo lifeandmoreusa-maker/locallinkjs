@@ -140,9 +140,12 @@ if (rsvpForm) {
         const preference = document.querySelector('input[name="preference"]:checked').value;
         const preferredTime = document.querySelector('input[name="preferred-time"]:checked').value; 
         
-        const selectMonthVal = document.querySelector('#select-month').value;
-        const selectDayVal = document.querySelector('#select-day').value;
-        const preferredDate = `${selectMonthVal} ${selectDayVal}`;
+        const selectMonthVal = document.querySelector('#select-month').value.replace('월', '').padStart(2, '0');
+        const selectDayVal = document.querySelector('#select-day').value.replace('일', '').padStart(2, '0');
+        const currentYear = new Date().getFullYear();
+        // 구글 폼 날짜 타입(Date) 전송을 위해 YYYY-MM-DD 포맷 구성
+        const preferredDateFormatted = `${currentYear}-${selectMonthVal}-${selectDayVal}`; 
+        
         const selectedLocation = document.querySelector('#select-location').value;
 
         // Google Form Submission URL (formResponse)
@@ -157,6 +160,11 @@ if (rsvpForm) {
         formData.append('entry.1858549790', age);
         formData.append('entry.2037368284', preference); // 세미나 방식 (1:1/단체)
         formData.append('entry.1963810709', preferredTime); // 선호 시간대
+        
+        // 새로 추가된 '참여 가능한 날자' (Date)
+        formData.append('entry.524345578', preferredDateFormatted);
+        // 새로 추가된 '참여 가능한 장소 선택' (Dropdown)
+        formData.append('entry.688295929', selectedLocation);
 
         // Submit to Google Form using fetch (Hidden Submission)
         fetch(GFORM_URL, {
