@@ -140,15 +140,10 @@ if (rsvpForm) {
         const preference = document.querySelector('input[name="preference"]:checked').value;
         const preferredTime = document.querySelector('input[name="preferred-time"]:checked').value; 
         
-        // 새로 추가된 월/일 및 장소 선택 필드 값
         const selectMonthVal = document.querySelector('#select-month').value;
         const selectDayVal = document.querySelector('#select-day').value;
         const preferredDate = `${selectMonthVal} ${selectDayVal}`;
         const selectedLocation = document.querySelector('#select-location').value;
-
-        // 구글 폼의 객관식 항목에 임의의 텍스트를 넣으면 저장이 거부되므로,
-        // 자유 텍스트 입력 칸인 '유입 경로(referer)' 항목에 날짜와 장소를 병합해서 보냅니다.
-        const combinedReferer = `${referer} (장소: ${selectedLocation} / 날짜: ${preferredDate})`;
 
         // Google Form Submission URL (formResponse)
         const GFORM_URL = 'https://docs.google.com/forms/d/15fLXw230cVqct_wpILr14WagcWgMfPawcCLu_s6Uirg/formResponse';
@@ -157,11 +152,19 @@ if (rsvpForm) {
         const formData = new FormData();
         formData.append('entry.1873593474', name);
         formData.append('entry.1511710695', phone);
-        formData.append('entry.600478127', combinedReferer); // 유입경로 + 장소 + 날짜
+        formData.append('entry.600478127', referer); // 유입경로 (기존대로 단독 전송)
         formData.append('entry.1211908548', job);
         formData.append('entry.1858549790', age);
         formData.append('entry.2037368284', preference); // 세미나 방식 (1:1/단체)
-        formData.append('entry.1963810709', preferredTime); // 선호 시간대 원래대로 전송
+        formData.append('entry.1963810709', preferredTime); // 선호 시간대 
+        
+        // --- 🌟 새롭게 추가하신 구글 폼 질문의 entry ID를 아래 1234567890, 0987654321 부분에 적어주세요! ---
+        
+        // 1. '참여 장소 선택' 질문의 entry ID
+        formData.append('entry.1234567890', selectedLocation); 
+        
+        // 2. '참여 가능한 날짜' 질문의 entry ID
+        formData.append('entry.0987654321', preferredDate);
 
         // Submit to Google Form using fetch (Hidden Submission)
         fetch(GFORM_URL, {
