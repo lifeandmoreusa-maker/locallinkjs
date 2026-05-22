@@ -138,13 +138,16 @@ if (rsvpForm) {
         const job = document.querySelector('#job').value;
         const age = document.querySelector('#age').value;
         const preference = document.querySelector('input[name="preference"]:checked').value;
-        const preferredTime = document.querySelector('input[name="preferred-time"]:checked').value; // 추가된 필드
+        const preferredTime = document.querySelector('input[name="preferred-time"]:checked').value; 
         
         // 새로 추가된 월/일 및 장소 선택 필드 값
         const selectMonthVal = document.querySelector('#select-month').value;
         const selectDayVal = document.querySelector('#select-day').value;
         const preferredDate = `${selectMonthVal} ${selectDayVal}`;
         const selectedLocation = document.querySelector('#select-location').value;
+
+        // 구글 폼에 새로운 항목(열)을 추가하지 않아도 저장되도록, 시간대 필드에 날짜와 장소를 합쳐서 전송합니다.
+        const combinedTimeData = `[${preferredDate}] ${preferredTime} / 장소: ${selectedLocation}`;
 
         // Google Form Submission URL (formResponse)
         const GFORM_URL = 'https://docs.google.com/forms/d/15fLXw230cVqct_wpILr14WagcWgMfPawcCLu_s6Uirg/formResponse';
@@ -157,11 +160,7 @@ if (rsvpForm) {
         formData.append('entry.1211908548', job);
         formData.append('entry.1858549790', age);
         formData.append('entry.2037368284', preference); // 세미나 방식 (1:1/단체)
-        formData.append('entry.1963810709', preferredTime); // 선호 시간대 필드
-        
-        // 구글 폼 설정에 맞게 entry.1234567890 형태로 ID 수정이 필요합니다.
-        formData.append('entry.preferredDate_placeholder', preferredDate); // 참여 가능한 시간
-        formData.append('entry.selectedLocation_placeholder', selectedLocation); // 참여 장소
+        formData.append('entry.1963810709', combinedTimeData); // 선호 시간대 + 날짜 + 장소 병합 전송
 
         // Submit to Google Form using fetch (Hidden Submission)
         fetch(GFORM_URL, {
