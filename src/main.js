@@ -142,10 +142,9 @@ if (rsvpForm) {
         
         const selectMonthVal = document.querySelector('#select-month').value.replace('월', '').padStart(2, '0');
         const selectDayVal = document.querySelector('#select-day').value.replace('일', '').padStart(2, '0');
-        const currentYear = new Date().getFullYear();
-        // 구글 폼 날짜 타입(Date) 전송을 위해 YYYY-MM-DD 포맷 구성
-        const preferredDateFormatted = `${currentYear}-${selectMonthVal}-${selectDayVal}`; 
+        const currentYear = new Date().getFullYear().toString();
         
+        const preferredDate = `${selectMonthVal}월 ${selectDayVal}일`;
         const selectedLocation = document.querySelector('#select-location').value;
 
         // Google Form Submission URL (formResponse)
@@ -161,8 +160,11 @@ if (rsvpForm) {
         formData.append('entry.2037368284', preference); // 세미나 방식 (1:1/단체)
         formData.append('entry.1963810709', preferredTime); // 선호 시간대
         
-        // 새로 추가된 '참여 가능한 날자' (Date)
-        formData.append('entry.524345578', preferredDateFormatted);
+        // 새로 추가된 '참여 가능한 날자' (Date Type) - 반드시 year, month, day를 개별적으로 보내야 합니다!
+        formData.append('entry.524345578_year', currentYear);
+        formData.append('entry.524345578_month', selectMonthVal);
+        formData.append('entry.524345578_day', selectDayVal);
+        
         // 새로 추가된 '참여 가능한 장소 선택' (Dropdown)
         formData.append('entry.688295929', selectedLocation);
 
