@@ -148,7 +148,7 @@ if (rsvpForm) {
         const selectedLocation = document.querySelector('#select-location').value;
 
         // Google Form Submission URL (formResponse)
-        const GFORM_URL = 'https://docs.google.com/forms/d/15fLXw230cVqct_wpILr14WagcWgMfPawcCLu_s6Uirg/formResponse';
+        const GFORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScgpYg8zyfX9lttobhQxqeBLq647L6MmqnKNPc0qTkZMB9WDg/formResponse';
 
         // Map local fields to Google Form entry IDs
         const formData = new FormData();
