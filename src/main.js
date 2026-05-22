@@ -151,7 +151,7 @@ if (rsvpForm) {
         const GFORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScgpYg8zyfX9lttobhQxqeBLq647L6MmqnKNPc0qTkZMB9WDg/formResponse';
 
         // Map local fields to Google Form entry IDs
-        const formData = new FormData();
+        const formData = new URLSearchParams();
         formData.append('entry.1873593474', name);
         formData.append('entry.1511710695', phone);
         formData.append('entry.600478127', referer); 
@@ -170,6 +170,9 @@ if (rsvpForm) {
         fetch(GFORM_URL, {
             method: 'POST',
             mode: 'no-cors', // Essential for Google Form bypass
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
             body: formData
         }).then(() => {
             // Success UX
