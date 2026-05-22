@@ -149,16 +149,14 @@ if (rsvpForm) {
         const GFORM_URL = 'https://docs.google.com/forms/d/15fLXw230cVqct_wpILr14WagcWgMfPawcCLu_s6Uirg/formResponse';
 
         // Map local fields to Google Form entry IDs
-        // 🌟 복잡하게 구글폼 ID를 찾으실 필요 없이, 기존 '유입경로' 칸에 합쳐서 보내도록 처리했습니다!
-        const combinedReferer = `${referer} [날짜: ${preferredDate} / 장소: ${selectedLocation}]`;
-
+        const formData = new FormData();
         formData.append('entry.1873593474', name);
         formData.append('entry.1511710695', phone);
-        formData.append('entry.600478127', combinedReferer); // 유입경로 칸에 합쳐서 저장!
+        formData.append('entry.600478127', referer); 
         formData.append('entry.1211908548', job);
         formData.append('entry.1858549790', age);
         formData.append('entry.2037368284', preference); // 세미나 방식 (1:1/단체)
-        formData.append('entry.1963810709', preferredTime); // 선호 시간대 
+        formData.append('entry.1963810709', preferredTime); // 선호 시간대
 
         // Submit to Google Form using fetch (Hidden Submission)
         fetch(GFORM_URL, {
