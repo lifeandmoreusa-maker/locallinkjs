@@ -146,8 +146,9 @@ if (rsvpForm) {
         const preferredDate = `${selectMonthVal} ${selectDayVal}`;
         const selectedLocation = document.querySelector('#select-location').value;
 
-        // 구글 폼에 새로운 항목(열)을 추가하지 않아도 저장되도록, 시간대 필드에 날짜와 장소를 합쳐서 전송합니다.
-        const combinedTimeData = `[${preferredDate}] ${preferredTime} / 장소: ${selectedLocation}`;
+        // 구글 폼의 객관식 항목에 임의의 텍스트를 넣으면 저장이 거부되므로,
+        // 자유 텍스트 입력 칸인 '유입 경로(referer)' 항목에 날짜와 장소를 병합해서 보냅니다.
+        const combinedReferer = `${referer} (장소: ${selectedLocation} / 날짜: ${preferredDate})`;
 
         // Google Form Submission URL (formResponse)
         const GFORM_URL = 'https://docs.google.com/forms/d/15fLXw230cVqct_wpILr14WagcWgMfPawcCLu_s6Uirg/formResponse';
@@ -156,11 +157,11 @@ if (rsvpForm) {
         const formData = new FormData();
         formData.append('entry.1873593474', name);
         formData.append('entry.1511710695', phone);
-        formData.append('entry.600478127', referer);
+        formData.append('entry.600478127', combinedReferer); // 유입경로 + 장소 + 날짜
         formData.append('entry.1211908548', job);
         formData.append('entry.1858549790', age);
         formData.append('entry.2037368284', preference); // 세미나 방식 (1:1/단체)
-        formData.append('entry.1963810709', combinedTimeData); // 선호 시간대 + 날짜 + 장소 병합 전송
+        formData.append('entry.1963810709', preferredTime); // 선호 시간대 원래대로 전송
 
         // Submit to Google Form using fetch (Hidden Submission)
         fetch(GFORM_URL, {
