@@ -550,7 +550,8 @@
                             <!-- 선호하는 시간대 추가 -->
                             <div class="time-selection-group" style="margin-bottom: 2.5rem;">
                                 <label
-                                    style="margin-bottom: 1rem; display: block; color: var(--text-muted); font-size: 0.95rem; font-weight: 600;">선호하는
+                                    style="margin-bottom: 1rem; display: block; color: var(--text-muted); font-size: 0.95rem; font-weight: 600;">참여
+                                    가능한
                                     시간대</label>
                                 <div class="time-grid"
                                     style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
@@ -570,6 +571,53 @@
                                         <input type="radio" name="preferred-time" value="저녁 (19:00~20:00)">
                                         <span>저녁 (19:00~20:00)</span>
                                     </label>
+                                </div>
+                            </div>
+
+                            <!-- 참여 가능한 시간 추가 -->
+                            <div class="date-selection-group" style="margin-bottom: 2.5rem;">
+                                <label
+                                    style="margin-bottom: 1rem; display: block; color: var(--text-muted); font-size: 0.95rem; font-weight: 600;">참여 가능한 날짜</label>
+                                <div class="date-select-grid"
+                                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                                    <div class="select-wrapper">
+                                        <select id="select-month" required
+                                            style="padding-right: 1.5rem; background-position: right 0.5rem center;">
+                                            <option value="" disabled selected>월</option>
+                                            <option value="1월">1월</option>
+                                            <option value="2월">2월</option>
+                                            <option value="3월">3월</option>
+                                            <option value="4월">4월</option>
+                                            <option value="5월">5월</option>
+                                            <option value="6월">6월</option>
+                                            <option value="7월">7월</option>
+                                            <option value="8월">8월</option>
+                                            <option value="9월">9월</option>
+                                            <option value="10월">10월</option>
+                                            <option value="11월">11월</option>
+                                            <option value="12월">12월</option>
+                                        </select>
+                                    </div>
+                                    <div class="select-wrapper">
+                                        <select id="select-day" required
+                                            style="padding-right: 1.5rem; background-position: right 0.5rem center;">
+                                            <option value="" disabled selected>일</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 참여 장소 선택 추가 -->
+                            <div class="location-selection-group" style="margin-bottom: 2.5rem;">
+                                <label
+                                    style="margin-bottom: 1rem; display: block; color: var(--text-muted); font-size: 0.95rem; font-weight: 600;">참여
+                                    장소 선택</label>
+                                <div class="select-wrapper">
+                                    <select id="select-location" required>
+                                        <option value="" disabled selected>장소를 선택해주세요</option>
+                                        <option value="성수역 생각공장데시앙플렉스">성수역 생각공장데시앙플렉스</option>
+                                        <option value="참여 장소 추가 중"> 참여 장소 추가 중 </option>
+                                    </select>
                                 </div>
                             </div>
 

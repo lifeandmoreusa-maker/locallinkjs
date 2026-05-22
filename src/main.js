@@ -139,6 +139,12 @@ if (rsvpForm) {
         const age = document.querySelector('#age').value;
         const preference = document.querySelector('input[name="preference"]:checked').value;
         const preferredTime = document.querySelector('input[name="preferred-time"]:checked').value; // 추가된 필드
+        
+        // 새로 추가된 월/일 및 장소 선택 필드 값
+        const selectMonthVal = document.querySelector('#select-month').value;
+        const selectDayVal = document.querySelector('#select-day').value;
+        const preferredDate = `${selectMonthVal} ${selectDayVal}`;
+        const selectedLocation = document.querySelector('#select-location').value;
 
         // Google Form Submission URL (formResponse)
         const GFORM_URL = 'https://docs.google.com/forms/d/15fLXw230cVqct_wpILr14WagcWgMfPawcCLu_s6Uirg/formResponse';
@@ -152,6 +158,10 @@ if (rsvpForm) {
         formData.append('entry.1858549790', age);
         formData.append('entry.2037368284', preference); // 세미나 방식 (1:1/단체)
         formData.append('entry.1963810709', preferredTime); // 선호 시간대 필드
+        
+        // 구글 폼 설정에 맞게 entry.1234567890 형태로 ID 수정이 필요합니다.
+        formData.append('entry.preferredDate_placeholder', preferredDate); // 참여 가능한 시간
+        formData.append('entry.selectedLocation_placeholder', selectedLocation); // 참여 장소
 
         // Submit to Google Form using fetch (Hidden Submission)
         fetch(GFORM_URL, {
@@ -160,7 +170,7 @@ if (rsvpForm) {
             body: formData
         }).then(() => {
             // Success UX
-            alert(`감사합니다, ${name}님!\n\n세미나 예약 신청이 완료되었습니다.\n구글 시트에 성공적으로 저장되었으며, 곧 안내 연락을 드리겠습니다.`);
+            alert(`감사합니다, ${name}님!\n\n세미나 예약 신청이 완료되었습니다.\n구글 시트에 성공적으로 저장되었으며, 곧 안내 연락을 드리겠습니다.\n\n[신청 내역]\n- 참여 일시: ${preferredDate} ${preferredTime}\n- 참여 장소: ${selectedLocation}\n- 참여 방식: ${preference}`);
             
             // Reset form and go back to first step
             rsvpForm.reset();
@@ -233,3 +243,35 @@ function updateCounters() {
 }
 setInterval(updateCounters, 1000);
 updateCounters();
+
+// Dynamic Day Generation Logic for Date Selector
+const selectMonth = document.getElementById('select-month');
+const selectDay = document.getElementById('select-day');
+
+if (selectMonth && selectDay) {
+    function updateDays() {
+        const monthVal = parseInt(selectMonth.value);
+        
+        if (monthVal) {
+            const currentYear = new Date().getFullYear();
+            const daysInMonth = new Date(currentYear, monthVal, 0).getDate();
+            const currentSelectedDay = selectDay.value;
+            
+            // Keep the placeholder "일" option
+            selectDay.innerHTML = '<option value="" disabled selected>일</option>';
+            
+            for (let d = 1; d <= daysInMonth; d++) {
+                const optVal = `${d}일`;
+                const option = document.createElement('option');
+                option.value = optVal;
+                option.textContent = optVal;
+                if (currentSelectedDay === optVal) {
+                    option.selected = true;
+                }
+                selectDay.appendChild(option);
+            }
+        }
+    }
+    
+    selectMonth.addEventListener('change', updateDays);
+}
