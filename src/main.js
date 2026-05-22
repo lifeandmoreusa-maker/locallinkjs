@@ -159,12 +159,6 @@ if (rsvpForm) {
         formData.append('entry.1858549790', age);
         formData.append('entry.2037368284', preference); // 세미나 방식 (1:1/단체)
         formData.append('entry.1963810709', preferredTime); // 선호 시간대
-        
-        // 새로 추가된 '참여 가능한 날자' (단답형 텍스트로 변경됨)
-        formData.append('entry.524345578', preferredDate);
-        
-        // 새로 추가된 '참여 가능한 장소 선택' (단답형 텍스트로 변경됨)
-        formData.append('entry.688295929', selectedLocation);
 
         // Submit to Google Form using fetch (Hidden Submission)
         fetch(GFORM_URL, {
