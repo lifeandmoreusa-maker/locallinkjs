@@ -252,8 +252,8 @@ if (dateInput && typeof flatpickr !== 'undefined') {
     let minDate = new Date();
     let addedDays = 0;
     
-    // 영업일 기준 +2일 계산 (주말 건너뛰기)
-    while (addedDays < 2) {
+    // 영업일 기준 +3일 계산 (주말 건너뛰기)
+    while (addedDays < 3) {
         minDate.setDate(minDate.getDate() + 1);
         // 토요일(6), 일요일(0)이 아니면 카운트 증가
         if (minDate.getDay() !== 0 && minDate.getDay() !== 6) {
