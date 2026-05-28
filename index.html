@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     <meta name="description" content="기업의 광고비를 고객에게 직접 환원하는 로컬링크. 오늘의 고단가 광고 혜택을 확인하세요.">
 </head>
 
@@ -557,62 +559,39 @@
                                     style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
                                     <label class="time-chip">
                                         <input type="radio" name="preferred-time" value="오전(10:00)" required>
-                                        <span>오전(10:00)</span>
+                                        <span>오전 (10:00)</span>
                                     </label>
                                     <label class="time-chip">
                                         <input type="radio" name="preferred-time" value="오전 (11:00)">
-                                        <span>오전(11:00)</span>
+                                        <span>오전 (11:00)</span>
                                     </label>
                                     <label class="time-chip">
                                         <input type="radio" name="preferred-time" value="오후 (14:00)">
-                                        <span>오후(14:00)</span>
+                                        <span>오후 (14:00)</span>
                                     </label>
                                     <label class="time-chip">
                                         <input type="radio" name="preferred-time" value="오후 (15:00)">
-                                        <span>오후(15:00)</span>
+                                        <span>오후 (15:00)</span>
                                     </label>
                                     <label class="time-chip">
                                         <input type="radio" name="preferred-time" value="오후 (16:00)">
-                                        <span>오후(16:00)</span>
+                                        <span>오후 (16:00)</span>
                                     </label>
                                     <label class="time-chip">
-                                        <input type="radio" name="preferred-time" value="오후(19:30)">
-                                        <span>오후(19:30)</span>
+                                        <input type="radio" name="preferred-time" value="오후 (19:30)">
+                                        <span>오후 (19:30)</span>
                                     </label>
                                 </div>
                             </div>
 
-                            <!-- 참여 가능한 시간 추가 -->
+                            <!-- 참여 가능한 날짜 -->
                             <div class="date-selection-group" style="margin-bottom: 2.5rem;">
                                 <label
                                     style="margin-bottom: 1rem; display: block; color: var(--text-muted); font-size: 0.95rem; font-weight: 600;">참여
                                     가능한 날짜</label>
-                                <div class="date-select-grid"
-                                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-                                    <div class="select-wrapper">
-                                        <select id="select-month" required
-                                            style="padding-right: 1.5rem; background-position: right 0.5rem center;">
-                                            <option value="" disabled selected>월</option>
-                                            <option value="1월">1월</option>
-                                            <option value="2월">2월</option>
-                                            <option value="3월">3월</option>
-                                            <option value="4월">4월</option>
-                                            <option value="5월">5월</option>
-                                            <option value="6월">6월</option>
-                                            <option value="7월">7월</option>
-                                            <option value="8월">8월</option>
-                                            <option value="9월">9월</option>
-                                            <option value="10월">10월</option>
-                                            <option value="11월">11월</option>
-                                            <option value="12월">12월</option>
-                                        </select>
-                                    </div>
-                                    <div class="select-wrapper">
-                                        <select id="select-day" required
-                                            style="padding-right: 1.5rem; background-position: right 0.5rem center;">
-                                            <option value="" disabled selected>일</option>
-                                        </select>
-                                    </div>
+                                <div class="date-select-grid" style="display: grid; grid-template-columns: 1fr; position: relative;">
+                                    <input type="text" id="seminar-date" placeholder="📅 달력에서 날짜를 선택해주세요" required
+                                        style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid rgba(255, 255, 255, 0.1); background: rgba(0, 0, 0, 0.3); color: #fff; font-size: 1.05rem; cursor: pointer; outline: none;">
                                 </div>
                             </div>
 
@@ -666,9 +645,9 @@
                 onclick="document.querySelector('.rsvp-section').scrollIntoView({ behavior: 'smooth' })">
                 세미나 예약하고 4만원 받기 →
             </button>
-        </div>
     </div>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
     <script type="module" src="./src/main.js?v=100"></script>
 </body>
 

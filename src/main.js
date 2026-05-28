@@ -140,11 +140,7 @@ if (rsvpForm) {
         const preference = document.querySelector('input[name="preference"]:checked').value;
         const preferredTime = document.querySelector('input[name="preferred-time"]:checked').value; 
         
-        const selectMonthVal = document.querySelector('#select-month').value.replace('월', '').padStart(2, '0');
-        const selectDayVal = document.querySelector('#select-day').value.replace('일', '').padStart(2, '0');
-        const currentYear = new Date().getFullYear().toString();
-        
-        const preferredDate = `${selectMonthVal}월 ${selectDayVal}일`;
+        const preferredDate = document.querySelector('#seminar-date').value;
         const selectedLocation = document.querySelector('#select-location').value;
 
         // Google Form Submission URL (formResponse)
@@ -250,34 +246,27 @@ function updateCounters() {
 setInterval(updateCounters, 1000);
 updateCounters();
 
-// Dynamic Day Generation Logic for Date Selector
-const selectMonth = document.getElementById('select-month');
-const selectDay = document.getElementById('select-day');
-
-if (selectMonth && selectDay) {
-    function updateDays() {
-        const monthVal = parseInt(selectMonth.value);
-        
-        if (monthVal) {
-            const currentYear = new Date().getFullYear();
-            const daysInMonth = new Date(currentYear, monthVal, 0).getDate();
-            const currentSelectedDay = selectDay.value;
-            
-            // Keep the placeholder "일" option
-            selectDay.innerHTML = '<option value="" disabled selected>일</option>';
-            
-            for (let d = 1; d <= daysInMonth; d++) {
-                const optVal = `${d}일`;
-                const option = document.createElement('option');
-                option.value = optVal;
-                option.textContent = optVal;
-                if (currentSelectedDay === optVal) {
-                    option.selected = true;
-                }
-                selectDay.appendChild(option);
-            }
+// Initialize Flatpickr for Date Selection
+const dateInput = document.getElementById('seminar-date');
+if (dateInput && typeof flatpickr !== 'undefined') {
+    let minDate = new Date();
+    let addedDays = 0;
+    
+    // 영업일 기준 +2일 계산 (주말 건너뛰기)
+    while (addedDays < 2) {
+        minDate.setDate(minDate.getDate() + 1);
+        // 토요일(6), 일요일(0)이 아니면 카운트 증가
+        if (minDate.getDay() !== 0 && minDate.getDay() !== 6) {
+            addedDays++;
         }
     }
-    
-    selectMonth.addEventListener('change', updateDays);
+
+    flatpickr(dateInput, {
+        locale: 'ko',
+        minDate: minDate,
+        dateFormat: "m월 d일",
+        altInput: true,
+        altFormat: "Y년 m월 d일",
+        placeholder: "달력에서 날짜를 선택해주세요"
+    });
 }
